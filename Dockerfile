@@ -1,12 +1,15 @@
 FROM phusion/baseimage:0.9.18
-MAINTAINER Samuele Bistoletti <samuele.bistoletti@gmail.com>
+# MAINTAINER Samuele Bistoletti <samuele.bistoletti@gmail.com>
+MAINTAINER Rick Hightower <richardhightower@gmail.com>
 
 CMD ["/sbin/my_init"]
 
 # Default versions
 ENV STATSD_VERSION 0.8.0
 ENV INFLUXDB_VERSION 0.13.0
-ENV GRAFANA_VERSION 3.0.4-1464167696
+
+#https://grafanarel.s3.amazonaws.com/builds/grafana-3.1.1-1470047149.x86_64.rpm
+ENV GRAFANA_VERSION 3.1.1-1470047149
 
 # Database Defaults
 ENV INFLUXDB_GRAFANA_DB datasource
