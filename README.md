@@ -2,13 +2,12 @@
 
 :facepunch: Battle-tested
 
-[![CircleCI](https://circleci.com/gh/samuelebistoletti/docker-statsd-influxdb-grafana.svg?style=svg)](https://circleci.com/gh/samuelebistoletti/docker-statsd-influxdb-grafana)
 
 ## Versions
 
 * StatsD:   0.8.0
 * InfluxDB: 0.13
-* Grafana:  3.0.4
+* Grafana:  3.1.1
 
 ## Quick Start
 
@@ -16,13 +15,13 @@ To start the container the first time launch:
 
 ```sh
 docker run -d \
-  --name docker-statsd-influxdb-grafana \
+  --name grafana \
   -p 3003:9000 \
   -p 3004:8083 \
   -p 8086:8086 \
   -p 22022:22 \
   -p 8125:8125/udp \
-  samuelebistoletti/docker-statsd-influxdb-grafana:latest
+  advantageous/grafana:latest:latest
 ```
 
 You can replace `latest` with the desired version listed in changelog file.
@@ -30,13 +29,13 @@ You can replace `latest` with the desired version listed in changelog file.
 To stop the container launch:
 
 ```sh
-docker stop docker-statsd-influxdb-grafana
+docker stop grafana
 ```
 
 To start the container again launch:
 
 ```sh
-docker start docker-statsd-influxdb-grafana
+docker start grafana
 ```
 
 ## Mapped Ports
@@ -99,3 +98,15 @@ Port: 8086
 
 1. Establish a ssh connection with the container
 2. Launch `influx` to open InfluxDB Shell (CLI)
+
+## Build
+
+```
+docker build -t advantageous/grafana:v1   .
+docker build -t advantageous/grafana:latest  .
+```
+
+## Push
+```
+docker push  advantageous/grafana
+```
